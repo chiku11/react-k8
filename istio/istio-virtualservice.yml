@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: myfirst-virtual-service
+  namespace: istio-demo
+spec:
+  hosts:
+  - "*"
+  gateways: 
+  - myfirst-gateway
+  http:
+  - name: backend
+    match:
+    - uri:
+        prefix: /random
+    route:
+    - destination:
+        host: node-backend-service.istio-demo.svc.cluster.local
+  - name: frontend
+    route:
+    - destination:
+        host: nginx-frontend-service.istio-demo.svc.cluster.local
