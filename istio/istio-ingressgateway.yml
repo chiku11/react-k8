@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: myfirst-gateway
+  namespace: istio-demo
+spec:
+  selector:
+    istio: ingressgateway # use the default IngressGateway
+  servers:
+  - port:
+      number: 3030
+      name: http-3030
+      protocol: HTTP
+    hosts:
+    - "*"
+  - port:
+      number: 80
+      name: http-80
+      protocol: HTTP
+    hosts:
+    - "*"
