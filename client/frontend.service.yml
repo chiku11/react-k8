@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: nginx-frontend-service
+  namespace: istio-demo
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: nginx-frontend
   ports:
   - port: 80
     targetPort: 80
+    name: http
+    protocol: TCP
