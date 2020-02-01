@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-frontend
+  name: nginx-frontend-deploy
+  namespace: istio-demo
 spec:
   selector:
     matchLabels:
