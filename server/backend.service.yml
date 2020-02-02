@@ -8,7 +8,7 @@ spec:
   selector:
     app: node-backend
   ports:
-  - port: 3030
+  - port: 9090
     targetPort: 3000
     name: http
     protocol: TCP
