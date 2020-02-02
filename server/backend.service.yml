@@ -4,7 +4,7 @@ metadata:
   name: node-backend-service
   namespace: istio-demo
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: node-backend
   ports:

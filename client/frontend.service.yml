@@ -4,7 +4,7 @@ metadata:
   name: nginx-frontend-service
   namespace: istio-demo
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: nginx-frontend
   ports:
