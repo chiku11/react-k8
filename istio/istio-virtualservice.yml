@@ -10,12 +10,24 @@ spec:
   - myfirst-gateway
   http:
   - name: backend
+    fault:
+      delay:
+        fixedDelay: 1s
+        percentage:
+          value: 100
+      abort:
+        httpStatus: 503
+        percentage:
+          value: 100
     match:
     - uri:
         prefix: /random
     route:
     - destination:
         host: node-backend-service.istio-demo.svc.cluster.local
+    retries:
+      attempts: 4
+      perTryTimeout: 3s
   - name: frontend
     route:
     - destination:
