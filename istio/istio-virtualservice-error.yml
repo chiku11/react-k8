@@ -10,6 +10,11 @@ spec:
   - myfirst-gateway
   http:
   - name: backend
+    fault:
+      abort:
+        httpStatus: 503
+        percentage:
+          value: 50
     match:
     - uri:
         prefix: /random

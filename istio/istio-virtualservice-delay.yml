@@ -10,6 +10,11 @@ spec:
   - myfirst-gateway
   http:
   - name: backend
+    fault:
+      delay:
+        fixedDelay: 1s
+        percentage:
+          value: 100
     match:
     - uri:
         prefix: /random
