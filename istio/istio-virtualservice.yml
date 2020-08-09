@@ -23,3 +23,4 @@ spec:
     route:
     - destination:
         host: nginx-frontend-service.istio-demo.svc.cluster.local
+        subset: v1

@@ -10,11 +10,6 @@ spec:
   - myfirst-gateway
   http:
   - name: backend
-    fault:
-      abort:
-        httpStatus: 503
-        percentage:
-          value: 50
     match:
     - uri:
         prefix: /random
@@ -29,3 +24,8 @@ spec:
     - destination:
         host: nginx-frontend-service.istio-demo.svc.cluster.local
         subset: v1
+      weight: 50
+    - destination:
+        host: nginx-frontend-service.istio-demo.svc.cluster.local
+        subset: v2
+      weight: 50

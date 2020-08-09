@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-frontend-deploy
+  name: nginx-frontend-deploy-v2
   namespace: istio-demo
 spec:
   selector:
@@ -12,11 +12,11 @@ spec:
     metadata:
       labels:
         app: nginx-frontend
-        version: v1
+        version: v2
     spec:
       containers:
       - name: nginx-frontend
-        image: frontend:1.0
+        image: frontend:2.0
         resources:
           limits:
             memory: "128Mi"
